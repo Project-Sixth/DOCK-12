@@ -22,25 +22,31 @@
 Нужно сделать 3 отдельных пользователя, каждый со своим доступом к отдельному сайту в папке /var/www
 
 *Секция volumes композера выглядит так:*
-```    volumes:
+```
+    volumes:
       - /var/www:/mnt
       - ./user_chroots:/home
-      - ./users.txt:/etc/vsftpd/virtual_users.txt```
+      - ./users.txt:/etc/vsftpd/virtual_users.txt
+```
 
 *./users.txt выглядит так:*
-```userwebsite1
+```
+userwebsite1
 passwordwebsite1
 userwebsite2
 passwordwebsite2
 userwebsite3
-passwordwebsite3```
+passwordwebsite3
+```
 
 *Папка ./user_chroots имеет следующие выполненные команды*
-```mkdir ./user_chroots/userwebsite1
+```
+mkdir ./user_chroots/userwebsite1
 ln -sf /mnt/website1.com ./user_chroots/userwebsite1/www
 
 mkdir ./user_chroots/userwebsite2
 ln -sf /mnt/website2.ru ./user_chroots/userwebsite2/www
 
 mkdir ./user_chroots/userwebsite3
-ln -sf /mnt/website3.co.uk ./user_chroots/userwebsite3/www```
+ln -sf /mnt/website3.co.uk ./user_chroots/userwebsite3/www
+```
