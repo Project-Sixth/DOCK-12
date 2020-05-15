@@ -20,11 +20,9 @@ fi
 # Regardless of existence of virtual_users file, now it should be here. Create users.db
 db_load -T -t hash -f /etc/vsftpd/virtual_users.txt /etc/vsftpd/virtual_users.db
 
-# Fix rights to folders
-chown -R ftp:ftp /home
-
 # If FTP_OWN is active then own /mnt as well
 if [ "$FTP_OWN" = "YES" ]; then
+	chown -R ftp:ftp /home
 	chown -R ftp:ftp /mnt
 fi
 
@@ -77,4 +75,4 @@ EOB
 fi
 
 # Run vsftpd:
-&>/dev/null /usr/sbin/vsftpd /etc/vsftpd/vsftpd.conf
+/usr/sbin/vsftpd /etc/vsftpd/vsftpd.conf
