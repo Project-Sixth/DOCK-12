@@ -1,0 +1,31 @@
+version: "3.7"
+services:
+  vsftpd:
+    container_name: ftp_test
+    build:
+      context: .
+      dockerfile: ./Dockerfile
+      args:
+        USER_ID: 82
+        GROUP_ID: 82
+    environment:
+      FTP_USER: "**String**"
+      FTP_PASS: "**Random**"
+      FTP_OWN: "NO"
+      PASV_ENABLE: "YES"
+      PASV_ADDRESS: 127.0.0.1
+      PASV_MIN_PORT: 65100
+      PASV_MAX_PORT: 65110
+      PASV_ADDR_RESOLVE: "NO"
+      XFERLOG_STD_FORMAT: "NO"
+      FILE_OPEN_MODE: 0777
+      LOCAL_UMASK: 000
+    restart: always
+    ports:
+      - "20111:20"
+      - "21111:21"
+      - "65100-65110:65100-65110"
+    volumes:
+#      - ./mounts:/mnt
+#      - ./user_chroots:/home
+#      - ./users.txt:/etc/vsftpd/virtual_users.txt
