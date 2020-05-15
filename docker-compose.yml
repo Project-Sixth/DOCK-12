@@ -27,5 +27,6 @@ services:
       - "65100-65110:65100-65110"
     volumes:
 #      - ./mounts:/mnt
-#      - ./user_chroots:/home
+#      - ./var/www/website1:/home/user1/www
+#      - ./var/www/website2:/home/user2/www
 #      - ./users.txt:/etc/vsftpd/virtual_users.txt
